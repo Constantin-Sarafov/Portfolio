@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical skills</title>
+  <link rel="stylesheet" href="style1.css">
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="professional-skills.html">Professional Skills</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <style>
+    /* General styling */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #2b2626;
+      color: #ff3f6c;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #2b2626;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+
+    /* Styling for the containers */
+    .container-wrapper {
+      display: flex;
+      gap: 30px;
+      margin: 40px auto;
+      max-width: 1200px;
+      padding: 0 20px;
+    }
+
+    .content-wrapper .container {
+      flex: 1;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      border: 2px solid #ccc;
+      position: relative;
+      transition: opacity 0.5s ease;
+    }
+
+    .content-wrapper .container.hidden {
+      opacity: 0;
+      display: none;
+    }
+
+     /* Search Bar Customization */
+     .search-bar {
+      margin: 20px 0;
+      padding: 12px;
+      width: 100%;
+      max-width: 500px;
+      border: 2px solid #ff3f6c;
+      border-radius: 20px;
+      font-size: 16px;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    .search-bar:focus {
+      border-color: #000;
+      outline: none;
+    }
+
+    .search-bar::placeholder {
+      color: #aaa;
+    }
+
+    /* Floating label styles */
+    .floating-label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #ff3f6c;
+      color: white;
+      padding: 5px 10px;
+      font-size: 14px;
+      border-radius: 5px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .container:hover .floating-label {
+      opacity: 1;
+    }
+
+    /* Music player label design */
+    .music-player-label {
+      position: fixed;
+      bottom: 30px;
+      left: 20px;
+      background-color: #ff3f6c;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 100;
+      transition: opacity 0.3s ease;
+    }
+
+    .music-player-label:hover {
+      background-color: #e03056;
+    }
+
+    .music-player-label audio {
+      display: none;
+    }
+
+    .music-player-label .play-button {
+      background-color: #fff;
+      color: #ff3f6c;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    /* Optional hover effect on the play button */
+    .music-player-label .play-button:hover {
+      background-color: #ff3f6c;
+      color: white;
+    }
+
+    /* Song info display */
+    .music-info {
+      font-size: 14px;
+      color: #fff;
+      font-weight: normal;
+    }
+
+    /* Volume slider styling */
+    .volume-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      font-size: 14px;
+    }
+
+    .volume-control input[type="range"] {
+      width: 100px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <h1>Technical skills</h1>
+    <p>Welcome to my technical skills page. Below is an overview of my progress week by week.</p>
+  </header>
+
+  <!-- Search Bar -->
+  <input type="text" id="search" class="search-bar" placeholder="Search content..." oninput="filterContent()">
+
+  <!-- Week 1 Section -->
+  <section id="week-1">
+    <div class="container-wrapper">
+      <div class="container">
+        <div class="floating-label">Week 1 Highlight</div>
+        <h2>Trends and developments</h2>
+        <p><span class="highlight-text">Friday -</span> Additionally on Friday we had a fun activity of sorts which taught us about Gestalt. Personally for me, it was quite interesting to learn about it since thanks to it
+          I managed to implement the Figure/Ground Contrast style with the skill cards that can be seen on the homepage of this site. 
+          The reason as to why I perceive them as such is because the front and back of the card could be seen as separate "figures" against a "ground," 
+          with the hover action making the back of the card emerge as the new figure. 
+          Which creates a dynamic sense of depth or interaction, where the viewer's attention shifts between the two sides.</p>
+      </div>
+      
+      <div class="extra-container">
+        <h3>Poster we were tasked with doing</h3>
+        <img src="images/poster.png" alt="Additional Resource" style="display:block; margin-top:10px; width: 200px;">
+      </div>
+    </div>
+  </section>
+  
+  <!-- Week 2 Section -->
+  <section id="week-2">
+    <div class="container-wrapper">
+      <div class="container">
+        <div class="floating-label">Week 2 Update</div>
+        <h2>Interactive prototypes</h2>
+        <p>For the first day we began this semester we were given a challenge on to make a small page which tells 
+          something about us. We were also tasked to first do prototypes of the webpage so we would have a clear idea
+          as to what exactly we want to include. Once I was done I asked for feedback and one of the teachers noted that it looks good,
+          however I should have made it a bit more playful and creative like. I myself also wasn't quite satisfied
+          with it since it didn't really feel like it was my style, and didn't describe as what I see myself. </p>
+      </div>
+      
+      <div class="extra-container">
+        <h3>Additional Content for Week 2</h3>
+        <p>I followed the criticism and the remarks the teachers gave me...</p>
+        <img src="images/figma.png" alt="Additional Resource" style="display:block; margin-top:10px; width: 300px;">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Constantin Sarafov. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Function to filter content by search input
+    function filterContent() {
+      var searchInput = document.getElementById('search').value.toLowerCase();
+      var containers = document.querySelectorAll('.container');
+      
+      containers.forEach(function(container) {
+        var textContent = container.textContent.toLowerCase();
+        if (textContent.indexOf(searchInput) !== -1) {
+          container.classList.remove('hidden');
+        } else {
+          container.classList.add('hidden');
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

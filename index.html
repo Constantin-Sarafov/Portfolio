@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <div class="video-container">
+    <video autoplay loop muted playsinline>
+      <source src="images/cool-video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="overlay-content">
+      <h1>HELLO, I'M CONSTANTIN</h1>
+      <p>Welcome to my personal portfolio! Otherwise known as PEP. Here I will document my progress, show presentations I have worked on, and show how much I have grown.</p>
+      <a href="#about" class="btn">Learn More About Me</a>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#learning-outcomes">Learning Outcomes</a></li>
+      <li><a href="#feedback">Feedback</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+    
+  <!-- About Me Section -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <p>I'm 19 years old and new to HTML and CSS. I mostly rely on tutorials from YouTube and the site W3Schools, but thanks to the orientation phase, I've learned some basic web design skills like creating headers, paragraphs, and styling with CSS. Honestly, I love designing and prototyping websites more than coding itself, but I’m excited to keep improving my skills and create beautiful things.</p>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">My Skills</h2>
+      <div class="skills-list">
+        <!-- Skill Card 1 -->
+        <div class="skill-item">
+          <div class="front">
+            <div class="icon">🎨</div>
+            <h2 class="skill-name">Design</h2>
+            <p class="level">Level 3</p>
+          </div>
+          <div class="back">
+            <h3>Skills in Presentation Design</h3>
+            <ul>
+              <li>PowerPoint, Google Slides</li>
+              <li>Creative Layouts</li>
+              <li>Graphic Design</li>
+              <li>Interactive Features</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Skill Card 2 -->
+        <div class="skill-item">
+          <div class="front">
+            <div class="icon">🎤</div> 
+            <p class="skill-name">Public Speaking</p>
+            <p class="level">Level 3.5</p>
+          </div>
+          <div class="back">
+            <h3>Skills in Public Speaking</h3>
+            <ul>
+              <li>Audience Engagement</li>
+              <li>Clear Communication</li>
+              <li>Persuasive Storytelling</li>
+              <li>Effective Body Language</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Skill Card 3 -->
+        <div class="skill-item">
+          <div class="front">
+            <div class="icon">📅</div> 
+            <p class="skill-name">Project Management</p>
+            <p class="level">Level 2</p>
+          </div>
+          <div class="back">
+            <h3>Skills in Project Management</h3>
+            <ul>
+              <li>Deadline Management</li>
+              <li>Team Collaboration</li>
+              <li>Organized Planning</li>
+              <li>Open to Criticism</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Skill Card 4 -->
+        <div class="skill-item">
+          <div class="front">
+            <div class="icon">📸</div> 
+            <p class="skill-name">Content Creation</p>
+            <p class="level">Level 4</p>
+          </div>
+          <div class="back">
+            <h3>Skills in Content Creation</h3>
+            <ul>
+              <li>Graphic Design</li>
+              <li>Infographics</li>
+              <li>Photography</li>
+              <li>Editing Content</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio">
+    <div class="container">
+      <h2 class="section-title">My Work</h2>
+      <div class="presentation-item">
+        <img src="images/presentation-image.jpg" alt="Presentation">
+        <h3>ICT & Media Design</h3>
+        <p>A presentation that I and my group are still working on about our website.</p>
+        <a href="link-to-presentation" target="_blank">View Presentation</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Learning Outcomes Section -->
+  <section id="learning-outcomes">
+    <div class="container">
+      <h2 class="section-title">Learning Outcomes</h2>
+      <p>Through this course, I aim to achieve several key learning outcomes...</p>
+      <div class="links">
+        <a href="technical-skills.html" class="button">Technical Skills</a>
+        <a href="professional-skills.html" class="button">Professional Skills</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feedback Section -->
+  <header class="feedback-header">
+    <h1>Feedback Space</h1>
+  </header>
+
+  <div class="slider">
+    <!-- Optional content for the slider -->
+  </div>
+
+  <section id="feedback">
+    <div class="container" id="container" style="width: 600px; max-width: 600px; padding: 20px; border-radius: 8px; margin: 0 auto; transition: opacity 0.5s ease;">
+        <img src="images/feedback.png" alt="Feedback Image" style="width: 100%; border-radius: 8px;">
+    </div>
+    <button class="arrow left" onclick="prevSlide()">&#10094;</button>
+    <button class="arrow right" onclick="nextSlide()">&#10095;</button>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Constantin Sarafov | All Rights Reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

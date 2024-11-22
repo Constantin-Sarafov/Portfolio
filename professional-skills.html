@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional skills</title>
+  <link rel="stylesheet" href="style1.css">
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="technical-skills.html">Technical skills</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <style>
+    /* General styling */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #2b2626;
+      color: #ff3f6c;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #2b2626;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+
+    /* Styling for the containers */
+    .container-wrapper {
+      display: flex;
+      gap: 30px;
+      margin: 40px auto;
+      max-width: 1200px;
+      padding: 0 20px;
+    }
+
+    .content-wrapper .container {
+      flex: 1;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      border: 2px solid #ccc;
+      position: relative;
+      transition: opacity 0.5s ease;
+    }
+
+    .content-wrapper .container.hidden {
+      opacity: 0;
+      display: none;
+    }
+
+     /* Search Bar Customization */
+     .search-bar {
+      margin: 20px 0;
+      padding: 12px;
+      width: 100%;
+      max-width: 500px;
+      border: 2px solid #ff3f6c;
+      border-radius: 20px;
+      font-size: 16px;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    .search-bar:focus {
+      border-color: #000;
+      outline: none;
+    }
+
+    .search-bar::placeholder {
+      color: #aaa;
+    }
+
+    /* Floating label styles */
+    .floating-label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #ff3f6c;
+      color: white;
+      padding: 5px 10px;
+      font-size: 14px;
+      border-radius: 5px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .container:hover .floating-label {
+      opacity: 1;
+    }
+
+    /* Music player label design */
+    .music-player-label {
+      position: fixed;
+      bottom: 30px;
+      left: 20px;
+      background-color: #ff3f6c;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 100;
+      transition: opacity 0.3s ease;
+    }
+
+    .music-player-label:hover {
+      background-color: #e03056;
+    }
+
+    .music-player-label audio {
+      display: none;
+    }
+
+    .music-player-label .play-button {
+      background-color: #fff;
+      color: #ff3f6c;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    /* Optional hover effect on the play button */
+    .music-player-label .play-button:hover {
+      background-color: #ff3f6c;
+      color: white;
+    }
+
+    /* Song info display */
+    .music-info {
+      font-size: 14px;
+      color: #fff;
+      font-weight: normal;
+    }
+
+    /* Volume slider styling */
+    .volume-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      font-size: 14px;
+    }
+
+    .volume-control input[type="range"] {
+      width: 100px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <h1>Professional Skills</h1>
+    <p>Welcome to my professional skills page. Below is an overview of my progress week by week.</p>
+  </header>
+
+  <!-- Search Bar -->
+  <input type="text" id="search" class="search-bar" placeholder="Search content..." oninput="filterContent()">
+
+  <!-- Week 1 Section -->
+  <section id="week-1">
+    <div class="container-wrapper">
+      <div class="container">
+        <div class="floating-label">Week 1 Highlight</div>
+        <h2>Trends and developments - WEEK 1</h2>
+        <p>During the first week of our first semester, we were tasked with formning groups for a project of our choice. 
+          As of right now I got put in a group with Victoria and Masa. We also got tasked doing a team charter where we wrote down the rules that we set as a group and what programs we will use for the project in order to keep in touch and communicate. 
+          We also needed to do the project plan, which was a bit hard since we were pondering on what the project to be about. 
+          We finally decided to make a site which will stream a game of our choice. We decided to make it about the game CS-GO. 
+          Victoria got tasked with doing the prototyping as of right now, Masa with the research and I decided to try and recreate the prototype that Victoria will give me soon enough</p>
+      </div>
+      
+      <div class="extra-container">
+        <h3>Poster we were tasked with doing</h3>
+        <img src="images/site.png" alt="Additional Resource" style="display:block; margin-top:10px; width: 400px;">
+      </div>
+    </div>
+  </section>
+  
+   <!-- Week 2 Section -->
+   <section id="week-2">
+    <div class="container-wrapper">
+      <div class="container">
+        <h2>placeholder</h2>
+        <p> Today me and the team got feedback for our team charter and plan as well as the interviews and survey that we had done, here is what they had to say.
+          Since I recently changed groups there will be also additional risk assesments, the questionare that we did got no negative feedback,
+          We learned and understood better how the group grading works, we also learned that we won't be assesed only as a group, but also individually
+          which is why it's important for everyone to do their part and work on whatever they've been given to work on. We told our teacher what our plan was,
+          which is to basically sperate each webpage and assign it to each member of the group which will help us do more progress and loose no time. And finally
+          we got advised to get feedback from relevant teachers about the specific task they had currently given us. Overall this is all the feedback,
+          me and my new group mates got based on our project plan and team charter and the interview we had done.
+        </p>
+      </div>
+      
+      <div class="extra-container">
+        <h3>Additional Content for Week 2</h3>
+        <p>This container can include extra content, such as links, resources, or additional notes related to Week 2.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Constantin Sarafov. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Function to filter content by search input
+    function filterContent() {
+      var searchInput = document.getElementById('search').value.toLowerCase();
+      var containers = document.querySelectorAll('.container');
+      
+      containers.forEach(function(container) {
+        var textContent = container.textContent.toLowerCase();
+        if (textContent.indexOf(searchInput) !== -1) {
+          container.classList.remove('hidden');
+        } else {
+          container.classList.add('hidden');
+        }
+      });
+    }
+  </script>
+</body>
+</html>

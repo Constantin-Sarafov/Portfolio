@@ -1,0 +1,188 @@
+/* Body and Global Settings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #1a1a1a, #242424, #2e2e2e); /* Very Dark Gray Gradient */
+  background-size: 300% 300%;
+  animation: gradientShift 8s ease infinite;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Header Styling */
+header {
+  text-align: center;
+  padding: 100px 20px;
+  background: transparent;
+  animation: headerSlide 1s ease-out;
+}
+
+header h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #ff3f6c; /* Coral red */
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  animation: bounceHeader 1.5s ease-in-out;
+}
+
+header h2 {
+  color: #ff3f6c;
+}
+
+header p {
+  font-size: 1.4rem;
+  color: #fff;
+  margin: 20px auto 40px;
+  max-width: 700px;
+  line-height: 1.8;
+}
+
+/* Button Styling */
+.btn {
+  background: linear-gradient(45deg, #ff3f6c, #ff6f61); /* Gradient Pink to Red */
+  color: white;
+  padding: 18px 50px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: inline-block;
+  box-shadow: 0px 10px 20px rgba(255, 63, 108, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(45deg, #ff6f61, #ff3f6c);
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0px 12px 30px rgba(255, 63, 108, 0.6);
+}
+
+/* Navigation Styling */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #222;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+}
+
+nav ul li {
+  margin: 0 25px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #ff3f6c;
+  transform: scale(1.1) rotate(-5deg);
+}
+
+/* Main containers */
+section {
+  padding: 20px 20px; /* Further reduced padding */
+  background-color: #121212;
+  margin: 30px 0;
+  border-radius: 15px;
+  box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease, background-color 0.4s ease;
+}
+
+
+section:hover {
+  transform: translateY(-10px);
+  background-color: #1e1e1e;
+}
+
+/* Section Title */
+.section-title {
+  font-size: 3rem;
+  color: #ff3f6c; /* Coral red */
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+
+/* Footer Styling */
+footer {
+  background-color: #121212;
+  color: white;
+  text-align: center;
+  padding: 30px;
+  font-size: 1.2rem;
+  margin-top: 50px;
+  position: relative;
+}
+
+
+/* Animation Keyframes */
+@keyframes gradientShift {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes headerSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceHeader {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

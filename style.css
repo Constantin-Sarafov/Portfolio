@@ -1,0 +1,540 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #121212, #1a1a1a, #282828); /* Dark Modern Gradient */
+  background-size: 300% 300%;
+  animation: gradientShift 8s ease infinite;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+header {
+  text-align: center;
+  padding: 80px 20px;
+  background: transparent;
+  animation: headerSlide 1s ease-out;
+}
+
+header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ff3f6c; /* Coral red */
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  animation: bounceHeader 1.5s ease-in-out;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 20px auto 40px;
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+/* Button Styling */
+.btn {
+  background: linear-gradient(45deg, #ff3f6c, #ff6f61); /* Gradient Pink to Red */
+  color: white;
+  padding: 12px 40px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: inline-block;
+  box-shadow: 0px 10px 20px rgba(255, 63, 108, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(45deg, #ff6f61, #ff3f6c); 
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0px 12px 30px rgba(255, 63, 108, 0.6);
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #222;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+}
+
+nav ul li {
+  margin: 0 25px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #ff3f6c; 
+  transform: scale(1.1) rotate(-5deg);
+}
+
+section {
+  padding: 60px 20px;
+  background-color: #121212; 
+  margin: 30px auto;
+  max-width: 1200px; /* Restrict section width */
+  border-radius: 15px;
+  box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease, background-color 0.4s ease;
+}
+
+section:hover {
+  transform: translateY(-10px);
+  background-color: #1e1e1e; 
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #ff3f6c; /* Coral red */
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.skills-list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  animation: fadeInUp 1.5s ease-out;
+}
+
+.skill-item {
+  width: 250px; /* Reduced width */
+  height: 320px; /* Reduced height */
+  background-color: #333;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  perspective: 1000px;
+  transition: transform 0.6s ease;
+  cursor: pointer;
+}
+
+.skill-item:hover {
+  transform: rotateY(180deg);
+}
+
+.skill-item .front, .skill-item .back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  transition: transform 0.6s ease;
+}
+
+.skill-item .front {
+  background-color: #1e1e1e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #ff3f6c; /* Coral red */
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.skill-item .back {
+  background-color: #ff6f61; 
+  color: #fff;
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjusted min width */
+  gap: 30px;
+  padding: 50px;
+  animation: fadeInUp 2s ease-out;
+}
+
+.presentation-item {
+  background-color: #282828;
+  padding: 20px; /* Reduced padding */
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+  border-radius: 10px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.presentation-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.presentation-item img {
+  width: 100%;
+  max-width: 250px; /* Reduced image size */
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.presentation-item h3 {
+  font-size: 1.6rem; /* Reduced size */
+  font-weight: 700;
+  color: #ff3f6c; /* Coral red */
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.presentation-item p {
+  font-size: 1rem;
+  color: #ddd;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.presentation-item a {
+  text-decoration: none;
+  color: #ff6f61; 
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.presentation-item a:hover {
+  color: #ff3f6c; /* Coral red */
+}
+
+footer {
+  background-color: #121212;
+  color: white;
+  text-align: center;
+  padding: 30px;
+  font-size: 1.2rem;
+  margin-top: 50px;
+  position: relative;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeInUp 2s ease-out;
+}
+
+form input, form textarea {
+  width: 100%;
+  max-width: 600px; /* Reduced max width */
+  padding: 18px;
+  margin-bottom: 25px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+  transform: scale(1.02);
+  box-shadow: 0px 6px 12px rgba(255, 63, 108, 0.3);
+}
+
+form button {
+  padding: 14px 40px;
+  background: linear-gradient(45deg, #ff3f6c, #ff6f61);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+
+/* Animations */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes headerSlide {
+  from {
+      opacity: 0;
+      transform: translateY(-50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes bounceHeader {
+  0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+  }
+  40% {
+      transform: translateY(-15px);
+  }
+  60% {
+      transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.skill-item {
+  background: linear-gradient(145deg, #3a3a3a, #5f5f5f); /* Clean gradient */
+  border-radius: 10px;
+  transform-style: preserve-3d;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Front and back of the card */
+.skill-item .front,
+.skill-item .back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden; /* Prevents back from showing when flipped */
+  border-radius: 10px;
+}
+
+/* Front side: main card content */
+.skill-item .front {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #2e2e2e;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  padding: 20px;
+  transform: rotateY(0deg); /* Front side is initially visible */
+}
+
+/* Back side: revealed on flip */
+.skill-item .back {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff6f61;
+  color: #fff;
+  padding: 20px;
+  transform: rotateY(180deg); /* Initially hidden */
+}
+
+/* Hover Effect to Flip the Card */
+.skill-item:hover {
+  transform: rotateY(180deg); /* Flip the card when hovered */
+}
+
+/* Adding more info to the back of the card */
+.skill-item .back .info {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-top: 10px;
+}
+
+.skill-item .back h3 {
+  font-size: 1.3rem;
+  color: #ffd700; /* Gold for heading */
+  margin-bottom: 10px;
+}
+
+.skill-item .back ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.skill-item .back ul li {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.skill-item .back ul li::before {
+  content: "✔️ "; /* Adds a checkmark before each list item */
+  color: #ffd700;
+}
+
+/* Optional: Add image or icon for front card */
+.skill-item .front img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video-container video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+}
+
+.overlay-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.4); 
+}
+
+.overlay-content h1 {
+  font-size: 3em;
+  margin: 0;
+}
+
+.overlay-content p {
+  font-size: 1.2em;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #ff5a5f;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+#feedback {
+  position: relative;
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+}
+
+.container {
+  padding: 20px;
+  border-radius: 8px;
+  transition: opacity 0.5s ease;
+}
+
+.container img {
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  margin-top: 10px;
+}
+
+.arrow {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  transition: 0.3s;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+  user-select: none;
+}
+
+.arrow.left {
+  left: -40px;
+}
+
+.arrow.right {
+  right: -40px;
+}
+
+.arrow:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.feedback-header {
+  text-align: center;
+  background-color: #333; /* Matches your dark theme */
+  color: #ff6f61; 
+  padding: 20px;
+  font-size: 2em;
+  font-family: 'Arial', sans-serif; /* Consistent typography */
+  border-bottom: 2px solid #555; /* Adds a subtle separator */
+}
+
+.feedback-header h1 {
+  margin: 0;
+}
+
+/* Style for the links to look like buttons */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: coral;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 25px; /* Oval shape */
+  font-size: 16px;
+  margin: 10px 0;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #FF6347; /* Slightly darker coral on hover */
+}
+
+.links {
+  margin-top: 20px;
+}
+
