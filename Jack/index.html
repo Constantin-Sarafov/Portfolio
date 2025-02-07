@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack Game</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            background: radial-gradient(circle, #0b6623 60%, #003b1f);
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #game-container {
+            background: #2b2b2b;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            margin: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .buttons button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            transition: background 0.3s ease, transform 0.2s ease;
+            background: #ffcc00;
+            color: black;
+            font-weight: bold;
+        }
+
+        .buttons button:hover {
+            background: #e6b800;
+            transform: scale(1.1);
+        }
+
+        .buttons button:active {
+            transform: scale(1);
+        }
+
+        #result {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        p {
+            margin: 10px 0;
+            font-size: 1rem;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .card {
+            width: 70px;
+            height: 100px;
+            border-radius: 8px;
+            background: white;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border: 2px solid #006400;
+            position: relative;
+        }
+
+        .card.spade::before { content: '♠'; position: absolute; top: 5px; left: 5px; font-size: 1.2rem; }
+        .card.heart { color: red; } 
+        .card.heart::before { content: '♥'; position: absolute; top: 5px; left: 5px; font-size: 1.2rem; }
+        .card.club::before { content: '♣'; position: absolute; top: 5px; left: 5px; font-size: 1.2rem; }
+        .card.diamond { color: red; } 
+        .card.diamond::before { content: '♦'; position: absolute; top: 5px; left: 5px; font-size: 1.2rem; }
+
+        .card::after {
+            content: attr(data-value);
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            font-size: 1.2rem;
+        }
+
+        #player-cards, #dealer-cards {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        #bet-section {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #bet-input {
+            width: 120px;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            background-color: #333;
+            border: none;
+            color: white;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        #bet-button {
+            padding: 12px 20px;
+            font-size: 1rem;
+            background-color: #28a745;
+            border: none;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #bet-button:hover {
+            background-color: #218838;
+        }
+
+        #chips {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Blackjack Game</h1>
+    <div id="game-container">
+        <p id="chips">Chips: <span id="player-chips">1000</span></p>
+        
+        <div id="bet-section">
+            <input type="number" id="bet-input" placeholder="Enter bet" min="1" />
+            <button id="bet-button" onclick="startRound()">Place Bet</button>
+        </div>
+
+        <div>
+            <p><strong>Your cards:</strong></p>
+            <div id="player-cards" class="card-container"></div>
+            <p><strong>Your total:</strong> <span id="player-total">0</span></p>
+        </div>
+
+        <div>
+            <p><strong>Dealer's cards:</strong></p>
+            <div id="dealer-cards" class="card-container"></div>
+            <p><strong>Dealer's total:</strong> <span id="dealer-total">?</span></p>
+        </div>
+
+        <div class="buttons">
+            <button onclick="drawCard()">Draw Card</button>
+            <button onclick="stand()">Stand</button>
+            <button onclick="resetGame()">Reset</button>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        let playerCards = [];
+        let dealerCards = [];
+        let dealerTotal = 0;
+        let playerChips = 1000;
+        let currentBet = 0;
+        let gameOver = false;
+        const suits = ['spade', 'heart', 'club', 'diamond'];
+
+        function startRound() {
+            currentBet = parseInt(document.getElementById('bet-input').value);
+            if (isNaN(currentBet) || currentBet <= 0 || currentBet > playerChips) {
+                alert("Invalid bet amount.");
+                return;
+            }
+            playerChips -= currentBet;
+            document.getElementById('player-chips').textContent = playerChips;
+            resetGame();
+            drawCard();
+            drawCard(); // Deal 2 cards to the player at the start of the round
+            drawCard(); // Deal 1 card to the dealer
+            gameOver = false;
+        }
+
+        function drawCard() {
+            if (gameOver) return; // Disable drawing cards after game is over
+            const card = getRandomCard();
+            playerCards.push(card);
+            updateGame();
+        }
+
+        function stand() {
+            if (gameOver) return;
+
+            // Dealer's turn (AI)
+            while (dealerTotal < 17) {
+                const card = getRandomCard();
+                dealerCards.push(card);
+                dealerTotal = calculateTotal(dealerCards);
+            }
+            updateDealerCards();
+
+            const playerTotal = calculateTotal(playerCards);
+            if (playerTotal > 21) {
+                setResult('You busted! Dealer wins.');
+                playerChips -= currentBet;
+            } else if (dealerTotal > 21 || playerTotal > dealerTotal) {
+                setResult('You win!');
+                playerChips += currentBet * 2;
+            } else if (playerTotal < dealerTotal) {
+                setResult('Dealer wins!');
+                playerChips -= currentBet;
+            } else {
+                setResult('It\'s a tie!');
+                playerChips += currentBet; // Return the bet
+            }
+
+            document.getElementById('player-chips').textContent = playerChips;
+            gameOver = true;
+        }
+
+        function resetGame() {
+            playerCards = [];
+            dealerCards = [];
+            dealerTotal = 0;
+            gameOver = false;
+            document.getElementById('player-cards').innerHTML = '';
+            document.getElementById('dealer-cards').innerHTML = '';
+            document.getElementById('player-total').textContent = '0';
+            document.getElementById('dealer-total').textContent = '?';
+            document.getElementById('result').textContent = '';
+        }
+
+        function getRandomCard() {
+            const value = Math.floor(Math.random() * 13) + 1;
+            const suit = suits[Math.floor(Math.random() * suits.length)];
+            return { value, suit };
+        }
+
+        function calculateTotal(cards) {
+            let total = 0;
+            let aces = 0;
+
+            cards.forEach(card => {
+                if (card.value > 10) {
+                    total += 10;
+                } else if (card.value === 1) {
+                    aces += 1;
+                    total += 11;
+                } else {
+                    total += card.value;
+                }
+            });
+
+            while (total > 21 && aces > 0) {
+                total -= 10;
+                aces -= 1;
+            }
+
+            return total;
+        }
+
+        function updateGame() {
+            const playerTotal = calculateTotal(playerCards);
+            document.getElementById('player-total').textContent = playerTotal;
+            const container = document.getElementById('player-cards');
+            container.innerHTML = '';
+            playerCards.forEach(card => {
+                const cardElement = document.createElement('div');
+                cardElement.className = `card ${card.suit}`;
+                cardElement.textContent = card.value;
+                cardElement.setAttribute('data-value', card.value);
+                container.appendChild(cardElement);
+            });
+
+            if (playerTotal > 21) {
+                setResult('You busted! Dealer wins.');
+                playerChips -= currentBet;
+                document.getElementById('player-chips').textContent = playerChips;
+                gameOver = true;
+            }
+        }
+
+        function updateDealerCards() {
+            const container = document.getElementById('dealer-cards');
+            container.innerHTML = '';
+            dealerCards.forEach(card => {
+                const cardElement = document.createElement('div');
+                cardElement.className = `card ${card.suit}`;
+                cardElement.textContent = card.value;
+                cardElement.setAttribute('data-value', card.value);
+                container.appendChild(cardElement);
+            });
+            document.getElementById('dealer-total').textContent = dealerTotal;
+        }
+
+        function setResult(message) {
+            document.getElementById('result').textContent = message;
+            updateDealerCards();
+        }
+    </script>
+</body>
+</html>
